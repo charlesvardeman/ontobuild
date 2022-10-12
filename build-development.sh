@@ -8,7 +8,7 @@ SHACL=drone.shacl
 
 VERSION=` grep -i versionInfo modules/core/metadata.ttl | sed 's/[^"]*"\([^"]*\).*/\1/'`
 
-if [ -f "./development/ontology/merged.ttl" ]; then
+if [ -f "./development/merged.ttl" ]; then
     rm ./development/merged.ttl
 fi
 
