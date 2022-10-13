@@ -5,8 +5,7 @@ on:
       - CI
     types:
       - completed
-  push:
-    branches: ["main", "master"]
+    branches: [main]
 
 jobs:
   deploy:
