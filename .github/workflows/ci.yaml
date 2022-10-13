@@ -12,7 +12,8 @@ jobs:
       - name: Provision Apache Jena
         run: |
           sudo /bin/sh -c 'wget -O /usr/local/src/jena.tar.gz https://archive.apache.org/dist/jena/binaries/apache-jena-4.6.1.tar.gz'
-          sudo tar -zxvf jena.tar.gz
-          sudo mv apache-jena* /usr/local/jena
+          sudo tar -zxvf /usr/local/src/jena.tar.gz -C /usr/local/src
+          sudo mv /usr/local/src/apache-jena* /usr/local/jena
           sudo chmod a+x /usr/local/jena/bin/riot
           sh tests/validate.sh
+        shell: bash
