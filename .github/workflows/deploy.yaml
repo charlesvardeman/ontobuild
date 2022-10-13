@@ -1,12 +1,13 @@
 name: Deploy to Ontology to GitHub Pages
 on:
+  workflow_dispatch:
   workflow_run:
-    workflows: [Validate RDF Syntax]
+    workflows: ["CI"]
     types:
       - completed
   push:
     branches: ["main", "master"]
-  workflow_dispatch:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
