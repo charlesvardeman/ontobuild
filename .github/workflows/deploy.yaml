@@ -1,5 +1,9 @@
 name: Deploy to Ontology to GitHub Pages
 on:
+  workflow_run:
+    workflows: [Validate RDF Syntax]
+    types:
+      - completed
   push:
     branches: ["main", "master"]
   workflow_dispatch:

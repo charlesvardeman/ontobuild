@@ -8,7 +8,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )
 
 if [ -f "/usr/local/jena/bin/riot" ]; then
-    RIOT="/usr/local/bin/riot"
+    RIOT="/usr/local/jena/bin/riot"
 else
     RIOT="riot"
 fi
