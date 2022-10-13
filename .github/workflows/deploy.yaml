@@ -2,7 +2,7 @@ name: Deploy to Ontology to GitHub Pages
 on:
   workflow_run:
     workflows:
-      - CI
+      - Validate RDF
     types:
       - completed
     branches: [main]
