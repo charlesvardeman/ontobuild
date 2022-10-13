@@ -7,8 +7,8 @@ JENAVERSION="4.5.0"
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 ROOT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )
 
-if [ -f "./apache-jena-${JENAVERSION}/bin/riot" ]; then
-    RIOT="./apache-jena-${JENAVERSION}/bin/riot"
+if [ -f "/usr/local/jena/bin/riot" ]; then
+    RIOT="/usr/local/bin/riot"
 else
     RIOT="riot"
 fi
@@ -21,8 +21,8 @@ do
   "$RIOT" --validate ./$path
 done
 
-echo "Validating Module Shapes"
-for path in "$SHAPEPATHS"
-do
-  "$RIOT" --validate ./$path
-done
+# echo "Validating Module Shapes"
+# for path in "$SHAPEPATHS"
+# do
+#  "$RIOT" --validate ./$path
+# done
