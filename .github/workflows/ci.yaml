@@ -15,4 +15,4 @@ jobs:
           sudo tar -zxvf jena.tar.gz
           sudo mv apache-jena* /usr/local/jena
           sudo chmod a+x /usr/local/jena/bin/riot
-          /usr/local/jena/bin/riot -h
+          sh tests/validate.sh
