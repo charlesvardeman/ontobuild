@@ -16,7 +16,7 @@ if [ -f "/tmp/merged.ttl" ]; then
 fi
 
 echo "Merging Ontology"
-$mergecmd merge data $files -f ttl -o ./tmp/ontology
+$mergecmd merge data $files -f ttl -o /tmp/ontology
 
 # Build optional shapes if shapes.txt has content
 if [ -s $ROOT_DIR/tests/shapes.txt ]; then
