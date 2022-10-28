@@ -1,11 +1,8 @@
-name: Deploy to Ontology to GitHub Pages
+name: Release to Ontology to GitHub Pages
 on:
-  workflow_run:
-    workflows:
-      - Validate RDF
-    types:
-      - completed
-    branches: [main]
+  push:
+    tags:
+      - "**"
 
 jobs:
   deploy:
@@ -23,19 +20,19 @@ jobs:
       - name: Compile ontology modules using rdfx
         run: |
           pip install rdfx
-          bash ./tests/build-development.sh
+          bash ./tests/build-release.sh
 
       - name: Provision Widoco
         run: "sudo /bin/sh -c 'wget -O /usr/local/bin/widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.17/java-17-widoco-1.4.17-jar-with-dependencies.jar'"
       - name: Run Widoco
-        run: java -jar /usr/local/bin/widoco.jar -ontFile /tmp/merged.ttl -outFolder development/ontology -rewriteAll -webVowl
+        run: java -jar /usr/local/bin/widoco.jar -ontFile development/merged.ttl -outFolder development/ontology -rewriteAll -webVowl
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ github.token }}
           force_orphan: true
-          publish_dir: ./development/ontology
-          destination_dir: development
+          publish_dir: ./release/ontology
+          destination_dir: release
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
