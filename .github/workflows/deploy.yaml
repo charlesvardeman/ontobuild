@@ -23,7 +23,7 @@ jobs:
       - name: Compile ontology modules using rdfx
         run: |
           pip install rdfx
-          bash ./tests/build-development.sh
+          bash ./tests/merge-onto.sh
 
       - name: Provision Widoco
         run: "sudo /bin/sh -c 'wget -O /usr/local/bin/widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.17/java-17-widoco-1.4.17-jar-with-dependencies.jar'"
@@ -36,6 +36,6 @@ jobs:
           github_token: ${{ github.token }}
           force_orphan: true
           publish_dir: ./development/ontology
-          destination_dir: development
+          destination_dir: development/${{ env.VERSION }}
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
