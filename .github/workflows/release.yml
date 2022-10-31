@@ -26,8 +26,9 @@ jobs:
         run: "sudo /bin/sh -c 'wget -O /usr/local/bin/widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.17/java-17-widoco-1.4.17-jar-with-dependencies.jar'"
       - name: Run Widoco
         run: |
-          java -jar /usr/local/bin/widoco.jar -ontFile /tmp/ontology/merged.ttl -outFolder release/ontology -rewriteAll -webVowl
-          mv release/ontology release/ontology/${{ env.VERSION }}
+          java -jar /usr/local/bin/widoco.jar -ontFile /tmp/ontology/merged.ttl -outFolder tmp/ontology -rewriteAll -webVowl
+          mkdir -p release/ontology
+          mv tmp/ontology release/ontology/${{ github.ref }}
           rm
 
       - name: Deploy to GitHub Pages
