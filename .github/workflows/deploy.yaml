@@ -36,6 +36,7 @@ jobs:
           github_token: ${{ github.token }}
           force_orphan: true
           publish_dir: ./development/ontology
-          destination_dir: development/${{ env.VERSION }}
+          destination_dir: development
+          keep_files: true
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com

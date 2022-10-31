@@ -25,7 +25,10 @@ jobs:
       - name: Provision Widoco
         run: "sudo /bin/sh -c 'wget -O /usr/local/bin/widoco.jar https://github.com/dgarijo/Widoco/releases/download/v1.4.17/java-17-widoco-1.4.17-jar-with-dependencies.jar'"
       - name: Run Widoco
-        run: java -jar /usr/local/bin/widoco.jar -ontFile development/merged.ttl -outFolder development/ontology -rewriteAll -webVowl
+        run: |
+          java -jar /usr/local/bin/widoco.jar -ontFile /tmp/ontology/merged.ttl -outFolder release/ontology -rewriteAll -webVowl
+          mv release/ontology release/ontology/${{ env.VERSION }}
+          rm
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
