@@ -28,7 +28,7 @@ jobs:
         run: |
           java -jar /usr/local/bin/widoco.jar -ontFile /tmp/ontology/merged.ttl -outFolder tmp/ontology -rewriteAll -webVowl
           mkdir -p release/ontology
-          mv tmp/ontology release/ontology/${{ github.ref }}
+          mv tmp/ontology release/ontology/${{ github.ref_name }}
           rm
 
       - name: Deploy to GitHub Pages
