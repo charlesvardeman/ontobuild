@@ -37,5 +37,6 @@ jobs:
           force_orphan: true
           publish_dir: ./release/ontology
           destination_dir: release
+          keep_files: true
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
